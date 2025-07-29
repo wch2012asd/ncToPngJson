@@ -52,6 +52,12 @@ log/
 *.bak
 *.backup
 
+# Git credentials and tokens (SECURITY)
+.git/github-token.txt
+.git/credentials
+github-token.txt
+*.token
+
 # Git helper scripts (keep only essential ones)
 git-push-*.bat
 setup-github-*.bat
