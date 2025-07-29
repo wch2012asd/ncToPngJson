@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  nc-processor:
+    build: .
+    container_name: nc-file-processor
+    environment:
+      - JAVA_OPTS=-Xmx2g -Xms512m
+      # 数据库配置
+      - DB_URL=jdbc:postgresql://postgres:5432/ncprocessor
+      - DB_USER=ncuser
+      - DB_PASSWORD=ncpassword
+      - DB_SCHEMA=public
+      # 目录配置
+      - INPUT_DIR=/app/input
+      - OUTPUT_DIR=/app/output
+    volumes:
+      # 挂载输入和输出目录
+      - ./input:/app/input
+      - ./output:/app/output
+      # 挂载配置文件（可选）
+      - ./config.properties:/app/config.properties
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:13
+    container_name: nc-postgres
+    environment:
+      - POSTGRES_DB=ncprocessor
+      - POSTGRES_USER=ncuser
+      - POSTGRES_PASSWORD=ncpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

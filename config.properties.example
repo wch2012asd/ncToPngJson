@@ -1,0 +1,12 @@
+# NC File Processor Configuration Example
+# 复制此文件为 config.properties 并修改相应配置
+
+# 目录配置
+input.directory=./input
+output.directory=./output
+
+# 数据库配置
+database.url=jdbc:postgresql://localhost:5432/postgres
+database.user=postgres
+database.password=your-password-here
+database.schema=public

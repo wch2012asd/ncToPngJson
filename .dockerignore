@@ -1,0 +1,29 @@
+# Maven
+target/
+!target/nc-file-processor-1.0.0.jar
+pom.xml
+src/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试数据
+test-data/
+*.nc
