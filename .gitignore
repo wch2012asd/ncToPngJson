@@ -46,6 +46,17 @@ Thumbs.db
 logs/
 log/
 
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Git helper scripts (keep only essential ones)
+git-push-*.bat
+setup-github-*.bat
+check-*.bat
+
 # Runtime data
 pids
 *.pid
